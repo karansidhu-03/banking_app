@@ -8,14 +8,14 @@ declare type SearchParamProps = {
 // ========================================
 
 declare type SignUpParams = {
-  firstname?: string;
-  lastname?: string;
-  address1?: string;
-  city?: string;
-  state?: string;
-  postalCode?: string;
-  dateOfBirth?: string;
-  ssn?: string;
+  firstName: string;
+  lastName: string;
+  address1: string;
+  city: string;
+  state: string;
+  postalCode: string;
+  dateOfBirth: string;
+  ssn: string;
   email: string;
   password: string;
 };
@@ -31,8 +31,8 @@ declare type User = {
   userId: string;
   dwollaCustomerUrl: string;
   dwollaCustomerId: string;
-  firstname: string;
-  lastname: string;
+  firstName: string;
+  lastName: string;
   name: string;
   address1: string;
   city: string;
@@ -108,8 +108,8 @@ declare type CategoryCount = {
 };
 
 declare type Receiver = {
-  firstname: string;
-  lastname: string;
+  firstName: string;
+  lastName: string;
 };
 
 declare type TransferParams = {
@@ -203,7 +203,7 @@ declare interface BankTabItemProps {
   appwriteItemId?: string;
 }
 
-declare interface TotlaBalanceBoxProps {
+declare interface TotalBalanceBoxProps {
   accounts: Account[];
   totalBanks: number;
   totalCurrentBalance: number;
@@ -211,7 +211,7 @@ declare interface TotlaBalanceBoxProps {
 
 declare interface FooterProps {
   user: User;
-  type?: "mobile" | "desktop";
+  type: "mobile" | "desktop";
 }
 
 declare interface RightSidebarProps {

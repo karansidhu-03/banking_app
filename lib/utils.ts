@@ -76,6 +76,7 @@ export function formatAmount(amount: number): string {
   return formatter.format(amount);
 }
 
+// eslint-disable-next-line
 export const parseStringify = (value: any) => JSON.parse(JSON.stringify(value));
 
 export const removeSpecialCharacters = (value: string) => {
@@ -195,7 +196,7 @@ export const getTransactionStatus = (date: Date) => {
   return date > twoDaysAgo ? "Processing" : "Success";
 };
 
-export const authFormSchema = (type) =>
+export const authFormSchema = (type: string) =>
   z.object({
     //sign-up
     firstname: type === "sign-in" ? z.string().optional() : z.string().min(3),

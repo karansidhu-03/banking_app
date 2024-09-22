@@ -17,8 +17,8 @@ const Home = async () => {
           />
           <TotalBalanceBox
             accounts={[]}
-            totalbanks={1}
-            totalcurrentbalance={1250.35}
+            totalBanks={1}
+            totalCurrentBalance={1250.35}
           />
         </header>
         Recent Transactions
@@ -26,6 +26,7 @@ const Home = async () => {
       <RightSidebar
         user={loggedIn}
         transactions={[]}
+        // @ts-expect-error
         banks={[{ currentBalance: 1230.5 }, { currentBalance: 1500.05 }]}
       />
     </section>

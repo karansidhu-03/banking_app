@@ -6,21 +6,13 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { Button } from "@/components/ui/button";
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
+import { Form } from "@/components/ui/form";
 import CustomInput from "./CustomInput";
 import { authFormSchema } from "@/lib/utils";
 import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { getLoggedInUser, signIn, signUp } from "@/lib/actions/user.actions";
+import { signIn, signUp } from "@/lib/actions/user.actions";
+import PlaidLink from "./PlaidLink";
 
 const AuthForm = ({ type }: { type: string }) => {
   const router = useRouter();
@@ -42,8 +34,20 @@ const AuthForm = ({ type }: { type: string }) => {
     setIsLoading(true);
     try {
       //sign-up with  appwrtie & create plaid token
+      const userData = {
+        firstName: data.firstname!,
+        lastName: data.lastname!,
+        address1: data.address!,
+        city: data.city!,
+        state: data.state!,
+        postalCode: data.postalcode!,
+        dateOfBirth: data.dateofbirth!,
+        ssn: data.ssn!,
+        email: data.email,
+        password: data.password,
+      };
       if (type === "sign-up") {
-        const newUser = await signUp(data);
+        const newUser = await signUp(userData);
         setUser(newUser);
       }
 
@@ -81,7 +85,9 @@ const AuthForm = ({ type }: { type: string }) => {
         </div>
       </header>
       {user ? (
-        <div className="flex flex-col gap-4">{/*PlaidLink*/}</div>
+        <div className="flex flex-col gap-4">
+          <PlaidLink user={user} variant="primary" />
+        </div>
       ) : (
         <>
           <Form {...form}>

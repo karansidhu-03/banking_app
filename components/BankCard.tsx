@@ -6,6 +6,7 @@ import React from "react";
 const BankCard = ({
   account,
   userName,
+  // eslint-disable-next-line
   showBalance = true,
 }: CreditCardProps) => {
   return (

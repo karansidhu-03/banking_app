@@ -3,6 +3,7 @@ import Link from "next/link";
 import React from "react";
 import BankCard from "./BankCard";
 
+// eslint-disable-next-line
 const RightSidebar = ({ user, transactions, banks }: RightSidebarProps) => {
   return (
     <aside className="right-sidebar">
@@ -11,7 +12,7 @@ const RightSidebar = ({ user, transactions, banks }: RightSidebarProps) => {
         <div className="profile">
           <div className="profile-img">
             <span className="text-5xl font-bold text-blue-500">
-              {user.name[0]}
+              {user?.name[0]}
             </span>
           </div>
           <div className="profile-details">
