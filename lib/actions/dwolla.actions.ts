@@ -38,7 +38,6 @@ export const createFundingSource = async (
   }
 };
 export const createOnDemandAuthorization = async () => {
-  console.log("Dwolla client configuration:", dwollaClient);
   try {
     const onDemandAuthorization = await dwollaClient.post(
       "on-demand-authorizations",
@@ -54,13 +53,11 @@ export const createOnDemandAuthorization = async () => {
 export const createDwollaCustomer = async (
   newCustomer: NewDwollaCustomerParams
 ) => {
-  console.log("New customer object:", newCustomer);
   try {
     const requestBody = {
       ...newCustomer,
       // Add any additional fields required by the Dwolla API
     };
-    console.log("Request body:", requestBody);
     return await dwollaClient
       .post("customers", requestBody)
       .then((res) => res.headers.get("location"));

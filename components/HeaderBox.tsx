@@ -1,4 +1,4 @@
-const headerbox = ({
+const HeaderBox = ({
   type = "title",
   title,
   subtext,
@@ -17,4 +17,4 @@ const headerbox = ({
   );
 };
 
-export default headerbox;
+export default HeaderBox;
