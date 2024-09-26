@@ -97,9 +97,13 @@ export const signUp = async ({ password, ...userData }: SignUpParams) => {
 };
 export async function getLoggedInUser() {
   try {
-    const { account } = await createSessionClient();
+    const session = await createSessionClient();
 
-    const result = await account.get();
+    if (!session) {
+      return null;
+    }
+
+    const result = await session.account.get();
     const user = await getUserInfo({ userId: result.$id });
     return parseStringify(user);
   } catch (error) {
@@ -108,9 +112,13 @@ export async function getLoggedInUser() {
 }
 export const logoutAccount = async () => {
   try {
-    const { account } = await createSessionClient();
+    const session = await createSessionClient();
+
+    if (!session) {
+      return null;
+    }
     cookies().delete("appwrite-session");
-    await account.deleteSession("current");
+    await session.account.deleteSession("current");
   } catch (error) {
     return null;
   }

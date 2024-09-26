@@ -256,7 +256,7 @@ declare interface PaymentTransferFormProps {
 
 // Actions
 declare interface getAccountsProps {
-  userId: string;
+  userId: string | undefined;
 }
 
 declare interface getAccountProps {

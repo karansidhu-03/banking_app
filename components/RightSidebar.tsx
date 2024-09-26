@@ -5,7 +5,6 @@ import BankCard from "./BankCard";
 import { countTransactionCategories } from "@/lib/utils";
 import Category from "./Category";
 
-// eslint-disable-next-line
 const RightSidebar = ({ user, transactions, banks }: RightSidebarProps) => {
   const categories: CategoryCount[] = countTransactionCategories(transactions);
   return (
@@ -46,7 +45,7 @@ const RightSidebar = ({ user, transactions, banks }: RightSidebarProps) => {
               />
             </div>
             {banks[1] && (
-              <div className="absolute ght-0 top-8 z-0 w-[90%]">
+              <div className="absolute right-0 top-8 z-0 w-[90%]">
                 <BankCard
                   key={banks[1].$id}
                   account={banks[1]}
@@ -60,7 +59,7 @@ const RightSidebar = ({ user, transactions, banks }: RightSidebarProps) => {
         <div className="mt-10 flex flex-1 flex-col gap-6">
           <h2 className="header-2">Top categories</h2>
           <div className="space-y-5">
-            {categories.map((category, index) => (
+            {categories.map((category) => (
               <Category key={category.name} category={category} />
             ))}
           </div>

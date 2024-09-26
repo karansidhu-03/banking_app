@@ -2,7 +2,6 @@ import React from "react";
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
   TableHead,
   TableHeader,
@@ -86,12 +85,6 @@ const TransactionsTable = ({ transactions }: TransactionTableProps) => {
             </TableRow>
           );
         })}
-        <TableRow>
-          <TableCell className="font-medium">INV001</TableCell>
-          <TableCell>Paid</TableCell>
-          <TableCell>Credit Card</TableCell>
-          <TableCell className="text-right">$2 50.00</TableCell>
-        </TableRow>
       </TableBody>
     </Table>
   );

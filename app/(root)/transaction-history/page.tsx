@@ -11,7 +11,7 @@ const TransactionHistory = async ({
 }: SearchParamProps) => {
   const currentPage = Number(page as string) || 1;
   const loggedIn = await getLoggedInUser();
-  const accounts = await getAccounts({ userId: loggedIn.$id });
+  const accounts = await getAccounts({ userId: loggedIn?.$id });
   if (!accounts) return;
   const accountsData = accounts?.data;
   const appwriteItemId = (id as string) || accountsData[0]?.appwriteItemId;
@@ -29,7 +29,7 @@ const TransactionHistory = async ({
     <div className="transactions">
       <div className="transactions-header">
         <HeaderBox
-          title="Transactions History"
+          title="Transaction History"
           subtext="See your bank detailed transactions"
         />
       </div>
@@ -41,7 +41,7 @@ const TransactionHistory = async ({
             </h2>
             <p className="text-14 text-blue-25">{account?.data.officialName}</p>
             <p className="text-10 font-semibold tracking-[1.1px] text-white ">
-              ●●●● ●●●● ●●●●
+              ●●●● ●●●● ●●●● {account?.data.mask}
             </p>
           </div>
           <div className="transactions-account-balance">
